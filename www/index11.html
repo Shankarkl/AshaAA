@@ -1,0 +1,1331 @@
+﻿<!DOCTYPE HTML>
+<html max-height:100%;">
+<head>
+
+	<meta https-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 ,user-scalable = no"/>
+  
+
+    <link rel="stylesheet" href="js/jquery.mobile-1.2.0.css" />
+    <link href="css/mycss.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <link href="js/datepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css" />
+    <script src="js/datepicker/jquery.datetimepicker.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/jquery.mobile-1.2.0.js" type="text/javascript"></script>
+    <!--<script type="text/javascript" src="cordova-2.7.0.js"></script>-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="video.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fileopener.js"></script>
+    <title>Accident Reports</title>	
+<script type="text/javascript">
+        var pictureSource;
+        var destinationType;
+        var smallImage
+       
+       
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+           
+            pictureSource = navigator.camera.PictureSourceType;
+            destinationType = navigator.camera.DestinationType;
+        }
+        function onPhotoFileSuccess(imageData) {
+
+            $('#idDelImgPhotoImg').append('<div class="mainPhotodiv"><div class="deleteImg"><img id="ImgIdDelete" src="images/delete.png" alt="" onclick="deleteImg(this)" style="width: 100%" /></div> <div class="photodiv" id="idPhotoDiv"><img src="' + imageData + '" alt="" style="width: 100%;height:100%" /></div></div>');
+           
+            $('#idAddPhotoImg').show();
+            $('#idAddanotherphotoImg').hide();
+            if ($('#idDelImgPhotoImg').html().trim()) {
+                $('#idAddPhotoImg').hide();
+                $('#idAddanotherphotoImg').show();
+              
+              
+            }
+            else {
+              
+                $('#idAddanotherphotoImg').hide();
+                $('#idAddPhotoImg').show();
+            }
+
+        }
+        function capturePhotoWithFile() {
+           
+            navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+        };
+        function onFail(message) {
+            //Failed because:camera cancelled.
+           // alert('Failed because: ' + message);
+        }
+
+        function deleteImg(ImgTag) {
+        
+            $(ImgTag).parents('.mainPhotodiv').remove();
+        }
+       
+
+
+</script>
+<script type="text/javascript">
+    function capturePhotoWithFiledamagePhoto() {
+       
+        navigator.camera.getPicture(onPhotoFileSuccessdamagePhoto, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+    }
+    function onPhotoFileSuccessdamagePhoto(imageDatadamagePhoto) {
+        $('#idDelImgDamagePhotoImg').append('<div class="mainPhotodiv"><div class="deleteImg"><img id="ImgIdDelete" src="images/delete.png" alt="" onclick="deleteImg(this)" style="width: 100%" /></div> <div class="photodiv" id="idPhotoDiv"><img src="' + imageDatadamagePhoto + '" alt="" style="width: 100%;height:50%" /></div></div>');
+
+        $('#idAddDamagePhotoImg').show();
+        $('#idAddanotherDamagephotoImg').hide();
+        if ($('#idDelImgDamagePhotoImg').html().trim()) {
+        $('#idAddDamagePhotoImg').hide();
+            $('#idAddanotherDamagephotoImg').show();
+
+
+        }
+        else {
+            $('#idAddDamagePhotoImg').hide();
+            $('#idAddanotherDamagephotoImg').show();
+        }
+
+    }
+
+</script>
+<script type="text/javascript">
+        /*** FirstParty DLPhoto ***/
+        function capturePhotoWithFileDriverLicenseNum() {
+        navigator.camera.getPicture(onPhotoFileSuccessDriverLicenseNum, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+        }
+        function onPhotoFileSuccessDriverLicenseNum(imageDataPath) {
+            $('#idDriverLicenseNumPhoto').append('<div class="mainPhotodiv"><div style="margin-left: 110px"><img  src="images/delete.png" alt="" onclick="deleteImgLNum(this)"/></div><div class="photodiv id="idPhotoDiv2"><img  src="' + imageDataPath + '" alt="" style="width: 50%; height: 30%" /></div></div>');
+        }
+        function deleteImgLNum(ImgTag) {
+           $(ImgTag).parents('.mainPhotodiv').remove();
+        }
+
+        /*** FirstParty LicenseDisk Photo ***/
+    function capturePhotoWithFileLicenseDisk() {
+     navigator.camera.getPicture(onPhotoFileSuccessLicenseDisk, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+    }
+    function onPhotoFileSuccessLicenseDisk(imageDataPathLDisk) {
+        $('#idLicenseDiskPhoto').append('<div class="mainPhotodiv"><div style="margin-left: 110px"><img  src="images/delete.png" alt="" onclick="deleteImgLDisk(this)"/></div><div class="photodiv" id="idPhotoDivLicDisk"><img  src="' + imageDataPathLDisk + '" alt="" style="width: 50%; height: 30%" /></div>');
+    }
+    function deleteImgLDisk(ImgTagDisk) {
+        $(ImgTagDisk).parents('.mainPhotodiv').remove();
+    }
+    /*** FirstParty DamagePhoto  ***/
+    function capturePhotoWithFileDamagePhoto() {
+
+        navigator.camera.getPicture(onPhotoFileSuccessDamagePhoto, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+    }
+    function onPhotoFileSuccessDamagePhoto(imageDataPathDamagePhoto) {
+        $('#idDamagePhoto').append('<div class="mainPhotodiv"><div style="margin-left: 110px"><img  src="images/delete.png" alt="" onclick="deleteImgDamagePhoto(this)"/></div><div class="photodiv" id="idPhotoDivLicDisk"><img  src="' + imageDataPathDamagePhoto + '" alt="" style="width: 50%; height: 30%" /></div>');
+    }
+    function deleteImgDamagePhoto(ImgTagDamagePhoto) {
+        $(ImgTagDamagePhoto).parents('.mainPhotodiv').remove();
+    }
+   
+</script>
+<script type="text/javascript">
+    /*** SecondParty DLPhoto ***/
+    function capturePhotoWithFileDriverLicenseNumSP() {
+        navigator.camera.getPicture(onPhotoFileSuccessDriverLicenseNumSP, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+    }
+    function onPhotoFileSuccessDriverLicenseNumSP(imageDataPathSP) {
+        $('#idSecondpartyDriverLicenseNumPhoto').append('<div class="mainPhotodiv"><div style="margin-left: 110px"><img  src="images/delete.png" alt="" onclick="deleteImgLNumSP(this)"/></div><div class="photodiv id="idPhotoDiv2"><img  src="' + imageDataPathSP + '" alt="" style="width: 50%; height: 30%" /></div></div>');
+    }
+    function deleteImgLNumSP(ImgTagSP) {
+        $(ImgTagSP).parents('.mainPhotodiv').remove();
+    }
+
+    /*** SecondParty LicenseDisk Photo ***/
+    function capturePhotoWithFileLicenseDiskSP() {
+        navigator.camera.getPicture(onPhotoFileSuccessLicenseDiskSP, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+    }
+    function onPhotoFileSuccessLicenseDiskSP(imageDataPathLDiskSP) {
+        $('#idSecondpartyLicenseDiskPhoto').append('<div class="mainPhotodiv"><div style="margin-left: 110px"><img  src="images/delete.png" alt="" onclick="deleteImgLDiskSP(this)"/></div><div class="photodiv" id="idPhotoDivLicDisk"><img  src="' + imageDataPathLDiskSP + '" alt="" style="width: 50%; height: 30%" /></div>');
+    }
+    function deleteImgLDiskSP(ImgTagDiskSP) {
+        $(ImgTagDiskSP).parents('.mainPhotodiv').remove();
+    }
+    /*** SecondParty DamagePhoto  ***/
+    function capturePhotoWithFileDamagePhotoSP() {
+      
+        navigator.camera.getPicture(onPhotoFileSuccessDamagePhotoSP, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+    }
+    function onPhotoFileSuccessDamagePhotoSP(imageDataPathDamagePhotoSP) {
+        $('#idSecondpartyDamagePhoto').append('<div class="mainPhotodiv"><div style="margin-left: 110px"><img  src="images/delete.png" alt="" onclick="deleteImgDamagePhotoSP(this)"/></div><div class="photodiv" id="idPhotoDivLicDisk"><img  src="' + imageDataPathDamagePhotoSP + '" alt="" style="width: 50%; height: 30%" /></div>');
+    }
+    function deleteImgDamagePhotoSP(ImgTagDamagePhotoSP) {
+        $(ImgTagDamagePhotoSP).parents('.mainPhotodiv').remove();
+    }
+</script>
+<script type="text/javascript">
+   //Y->2014,y-14,H:iA-->hour:min:AMPM
+    $(function () {
+      
+        $('#txtdatepicker').datetimepicker({ timepicker: false,format:'m/d/Y' });
+        $('#btndatepicker').click(function () {
+        $('#txtdatepicker').datetimepicker('show');
+        });
+
+    $('#txttimepicker').datetimepicker({ datepicker: false, format: 'H:i'
+        });
+        $('#btntimepicker').click(function () {
+        $('#txttimepicker').datetimepicker('show');
+        });
+});
+</script>
+
+  
+  <script type="text/javascript">
+      // Called when capture operation is finished
+      //
+      function captureSuccess(mediaFiles) {
+          var i, len;
+          for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+              uploadFile(mediaFiles[i]);
+          }
+      }
+
+      // Called if something bad happens.
+      // 
+      function captureError(error) {
+          var msg = 'An error occurred during capture: ' + error.code;
+          navigator.notification.alert(msg, null, 'Uh oh!');
+      }
+
+      // A button will call this function
+      //
+      function captureVideo() {
+          // Launch device video recording application, 
+          // allowing user to capture up to 2 video clips
+          // var options = new uploadFile();
+        //  var options = options.mimeType;
+       //   alert(options);
+         // var options = navigator.device.capture.supportedVideoModes;
+         // alert("options:::::" + options);
+          navigator.device.capture.captureAudio(captureSuccess, captureError, options);
+          // alert("options:::::" + options);
+          //navigator.capture.startVideoCapture(success, fail, { duration: 5000, destinationFilename: "videos/a.3gp" });
+        //  navigator.capture.startVideoCapture(success, fail, { duration: 5000, destinationFilename: "videos/a.mp4" });
+      }
+
+      // Upload files to server
+      function uploadFile(mediaFile) {
+          try {
+              var ft = new FileTransfer(),
+            path = mediaFile.fullPath,
+            name = mediaFile.name;
+
+              ft.upload(path,
+            "http://my.domain.com/upload.php",
+            function (result) {
+                console.log('Upload success: ' + result.responseCode);
+                console.log(result.bytesSent + ' bytes sent');
+            },
+            function (error) {
+                console.log('Error uploading file ' + path + ': ' + error.code);
+            },
+            { fileName: name });
+
+              //  $('#idVedioImgDiv').append('<div class="mainPhotodiv"><div class="deleteImg"><img id="ImgIdDelete" src="images/delete.png" alt="" onclick="deleteAudio(this)" style="width: 100%" /></div> <div class="photodiv" id="idPhotoDiv"><img src="images/Mike.png" alt=""  onclick="playRecordedAudio()"/></div></div>');
+                $('#idIframeVedio').append('<iframe width="100%" height="315" src="' + path + '" frameborder="0" allowfullscreen></iframe> ');
+              // $('#idIframeVedio').append('<iframe width="100%" height="315" src="http: //video-js.zencoder.com/oceans-clip.mp4" frameborder="0" allowfullscreen></iframe> ');
+              // $('#idVedioImgDiv').append(' <img src="' + path + '" />');
+             // window.plugins.fileOpener.open(path);
+
+
+              $.mobile.changePage('#VedioPage', {
+                  transition: "none",
+                  reverse: false,
+                  changeHash: false
+              });
+              currentPage = 'VedioPage';
+              pageData.push(currentPage);
+          }
+          catch (exp) {
+              alert("vedio err:::::::" + exp);
+          }
+      }
+ </script>
+
+ <script type="text/javascript">
+   function openFile(filePath) {
+       alert("openFile");
+       // window.plugins.fileOpener.open(filePath);
+       try {
+           window.plugins.fileOpener.open(filePath);
+       }
+       catch (err) {
+           alert("openFile err ::::::"+err);
+       }
+  }
+</script>
+        
+ 
+
+</head>
+<body>
+
+
+<div data-role="page" id="VedioPage">
+    <div data-role="header" data-position="fixed">
+     
+        <table class="HeaderTable">
+            <tr class="HeaderTr">
+                <td>
+                    <div class="backbtn">
+                        <img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+                </td>
+                <td class="TopHeading">
+                  Report an Accident
+                </td>
+                 <td>
+                    <div style="width: 100%">
+                        <img src="images/3Cancel.png" alt="" onclick="goindexPage()"/></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div data-role="content">
+  <div onclick="captureVideo()" class="AudioName" >Capture Vedio</div>
+  <!-- <div  class="AudioName" >Capture Audio</div>-->
+   <br />
+   <br />
+   <br />
+   <div id="idVedioImgDiv">
+  <!--<img src="images/Mike.png" />-->
+   </div>
+     
+    
+     
+     <div id="idIframeVedio">
+     
+            </div>
+
+<div  id="video">
+<img src="images/Mike.png" onclick="openFile('file:///sdcard/DCIM/100MEDIA/VIDEO003.3gp')"/>
+</div>
+
+<video src="video/placeholder.m4v" poster="video/placeholder.jpg" onclick="this.play();"/>
+
+     
+</div>
+    
+      
+</div>
+<div data-role="page" id="indexPage">
+    <div data-role="header" data-position="fixed">
+       
+           <table class="HeaderTable">
+            <tr class="HeaderTr">
+                <td>
+                    <div style="width: 100%">
+                        <img src="images/17AAlogo.png" alt="" onclick=""/></div>
+                </td>
+                <td class="TopHeading">
+                    Report an Accident
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div data-role="content" class="BodyBackground" id="toremovebullets">
+    <ul>
+    <li class="liHeadingcenter" >Welcome to AA Rescue Service</li>
+    <li class="liHeadingcenter"><img class="RoundImgSize" src="images/rescueme.png" alt="" onclick="btnshowHistroyPage()"/></li>
+    <li class="liHeadingcenter">In the event of a roadside emergency.press the button to send an immediate AA Rescue alert.Please not send a test.Click below to set up contacts</li>
+    <li class="liHeadingcenter"><img class="RoundImgSize" src="images/accident.png" alt="" onclick="btnAAAccidentassist()" /></li>
+    <li class="liHeadingcenter">Book a Police Case</li>
+   
+    </ul>
+     
+    </div>
+    </div>
+
+
+<div data-role="page" id="FirstPartyPage">
+        <div data-role="header" data-position="fixed">
+            <table class="HeaderTable">
+                <tr class="HeaderTr">
+                    <td>
+                        <div class="backbtn">
+                            <img src="images/2left-arrow.png" alt="" onclick="gobackPage()" /></div>
+                    </td>
+                    <td class="TopHeading">
+                        Report an Accident
+                    </td>
+                    <td>
+                        <div style="width: 100%">
+                            <img src="images/3Cancel.png" alt="" onclick="goindexPage()" /></div>
+                    </td>
+                </tr>
+            </table>
+            <table class="ContentTable" cellspacing="0" cellpadding="0">
+                <tr class="PartyRow">
+                    <td class="Party">
+                        3rd Party(1)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div data-role="content">
+
+         <div style="width:100%!important;display: inline-block;">
+   <div style="width:100%!important"><div class="Title">Title</div><div class="Name"> First Name </div><div class="SurName"> SurName </div></div>
+             <div class="dateDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftdivReport1">
+                         <select id="idselectpartyTitle" class="selectOptions">
+                                 <option value="Mr">Mr</option>
+                                 <option value="Miss">Miss</option>
+                                 
+                             </select>
+                     </div>
+                     <div class="leftdivReport2">
+                         <!--<img src="images/14Date.png" alt="" />-->
+                     </div>
+                     <div> </div>
+
+                 </div>
+             </div>
+             <div class="timeDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftName">
+                         <input type="text" class="inputImg" id="txtidPartyName"/></div>
+                     <div class="leftdivReport2">
+                        <!-- <img src="images/15Clock.png" alt="" />-->
+                        </div>
+                 </div>
+             </div>
+             <div class="timeDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftSurname">
+                         <input type="text" class="inputImg" id="txtidPartySurName"/></div>
+                     <div class="leftdivReport2">
+                         <!--<img src="images/15Clock.png" alt="" />-->
+                         </div>
+                 </div>
+             </div>
+     </div>
+          
+            <div class="fieldname">ID Number</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyIDNumber"/></div>
+            <div class="fieldname">License No</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidDriverLicenseNum"/></div>
+             <div class="fieldnameAccident" style="width:100%!important;display: inline-block;"><div class="License">Scan License </div>
+            <div class="camera"><img src="images/13Camera.png" alt="" onclick="capturePhotoWithFileDriverLicenseNum();"/></div>
+            </div>
+          
+            <div id="idDriverLicenseNumPhoto">
+               <!-- <div style="margin-left: 110px">
+                    <img src="images/delete.png" alt="" /></div>
+                <div class="photodiv">
+                    <img src="images/5mount-img.png" alt="" style="width: 50%; height: 50%" /></div>-->
+            </div>
+            <div class="fieldnameAccident">Phone </div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyPhNumber"/></div>
+            <div class="fieldnameAccident">Email </div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyemail"/></div>
+            <div class="fieldnameAccident"> Notes</div>
+            <div class="inputFields"><textarea rows="4" cols="150" class="inputText" id="txtFirstpartyNotes"></textarea></div>
+              
+              <div style="background:#747474!important;padding:10px;margin-top:20px;">
+              <div style="color: #ffffff!important;font-family:Arial;font-size: 16px;font-weight: bold;text-shadow:none">3rd Party Vehicle</div>
+              </div>
+           
+
+
+            <div class="fieldnameAccident">Make</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyVehicleMake"/></div>
+            <div class="fieldnameAccident">Model</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyVehicleModel"/></div>
+            <div class="fieldnameAccident">Year</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyVehicleYear"/></div>
+             <div class="fieldnameAccident">Color</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyVehiclecolor"/></div>
+            <div class="fieldnameAccident">Registration Number</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyRegNum"/></div>
+          
+            <div class="fieldnameAccident">VIN No</div>
+            <div class="innerFields"><div class="leftdivReport1"><input type="text" class="inputImg" id="txtFirstpartyVINNum" /></div><div class="leftdivReport2"><a href="#popupBasic" data-rel="popup"><img src="images/questionmark.png" alt="" /></a></div></div>
+             
+              
+           <!-- <div data-role="popup" id="popupBasic" class="paraAboutAAQuestionmark">
+            <p class="paraAboutAAQuestionmark">Check on the dashboard passanger side, diretly under the windscreen</p>
+            </div>-->
+
+            <div data-role="popup" id="popupBasic" class="paraAboutAAQuestionmark">
+            <a href="#" data-rel="back"  data-theme="a" data-icon="delete" data-iconpos="X" class="ui-btn-right"><img src="images/delete.png" alt="" /></a>
+            <p class="paraAboutAAQuestionmark">Check on the dashboard passanger side, diretly under the windscreen</p>
+            </div>
+             
+             <div class="fieldnameAccident"> Notes</div>
+            <div class="inputFields"><textarea rows="4" cols="150" class="inputText" id="txtFirstpartyVehicleNotes"></textarea></div>
+            <div class="fieldnameAccident" style="width:100%!important;display: inline-block;"><div class="License">Scan License Disk</div>
+            <div class="camera"><img src="images/13Camera.png" alt="" onclick="capturePhotoWithFileLicenseDisk();"/></div>
+            </div>
+            <div id="idLicenseDiskPhoto">
+               <!-- <div style="margin-left: 110px">
+                    <img src="images/delete.png" alt="" /></div>
+                <div class="photodiv">
+                    <img src="images/5mount-img.png" alt="" style="width: 50%; height: 50%" /></div>-->
+            </div>
+             <div class="fieldnameAccident" style="width:100%!important;display: inline-block;"><div class="License">Photo of Damages</div>
+            <div class="camera"><img src="images/13Camera.png" alt="" onclick="capturePhotoWithFileDamagePhoto();"/></div>
+            </div>
+            <div id="idDamagePhoto">
+               <!-- <div style="margin-left: 110px">
+                    <img src="images/delete.png" alt="" /></div>
+                <div class="photodiv">
+                    <img src="images/5mount-img.png" alt="" style="width: 50%; height: 50%" /></div>-->
+            </div>
+               <div style="background:#747474!important;padding:10px;margin-top:20px;">
+              <div style="color: #ffffff!important;font-family:Arial;font-size: 16px;font-weight: bold;text-shadow:none">3rd Party Insurance</div>
+              </div>
+           
+            <div class="fieldnameAccident">Insurer</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyInsurer"/></div>
+             <div class="fieldnameAccident">Policy No</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyInsurerPcnum"/></div>
+             <div class="fieldnameAccident">Phone</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyInsurerPhnum"/></div>
+             <div class="fieldnameAccident">Color</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyInsurerVcolor"/></div>
+             <div class="fieldnameAccident">Registration </div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyInsurerVReg"/></div>
+             <div class="fieldnameAccident">Vin No</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtFirstpartyInsurerVinnum"/></div>
+            <div class="heightBtnAnother"><img src="images/Add_anotherParty.png" alt="" style="width:100%" onclick="gotoSecondPartyPage()"/></div>
+
+            
+            <div class="heightBtn">
+                <img src="images/next.png" alt="" onclick="gotoWitnessPageFromFP()" /></div>
+                 <input type="hidden" id="" value="" />
+        </div>
+ </div>
+
+   
+<div data-role="page" id="accidentReportPage">
+    <div data-role="header" data-position="fixed">
+       <!-- <div>
+        <div class="leftheading"><img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+        <div class="centerheading">Report an Accident</div>
+        <div class="rightheading"><img src="images/3Cancel.png" alt="" onclick="goindexPage()"/></div>
+        </div>-->
+         <table class="HeaderTable">
+            <tr class="HeaderTr">
+                <td>
+                    <div class="backbtn">
+                        <img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+                </td>
+                <td class="TopHeading">
+                  Report an Accident
+                </td>
+                 <td>
+                    <div style="width: 100%">
+                        <img src="images/3Cancel.png" alt="" onclick="goindexPage()"/></div>
+                </td>
+            </tr>
+        </table>
+       
+    </div>
+    <div data-role="content">
+   
+   <div style="width:100%!important;display: inline-block;">
+   <div style="width:100%!important"><div class="DateTime">Date</div><div class="DateTime"> Time </div></div>
+        <div class="dateDiv" style="width:50%!important">
+            
+            <div class="innerFields">
+                <div class="leftdivReport1">
+                     <input type="text" class="inputImg" id="txtdatepicker"/>
+                   <!--<input type='text' id='datepick' onclick="Dateshow()" />-->
+                   
+		 
+                </div>
+                <div class="leftdivReport2">
+                    <img src="images/14Date.png" id="btndatepicker" click="getDatePicker()" alt="" /></div>
+            </div>
+        </div>
+        <div class="timeDiv" style="width:50%!important">
+          
+            <div class="innerFields">
+                <div class="leftdivReport1">
+                   <input type="text" class="inputImg" id="txttimepicker"/>
+                    <!--  <input type="text" class="txttimepicker" />-->
+                    
+                    </div>
+                <div class="leftdivReport2">
+                    <img src="images/15Clock.png" alt="" id="btntimepicker"/></div>
+            </div>
+        </div>
+     </div>
+   
+   
+        <div class="fieldname">
+            GPS Location of Incident</div>
+        <div class="inputFields">
+            <input type="text"  id="txtidGPSIncident" class="inputText"/>
+              <!--<p style="background-color:Blue" id="txtidGPSIncidentPara"></p>-->
+            </div>
+          
+        <div class="fieldnameAccident">
+            Description of Location</div>
+        <div class="inputFields">
+            <textarea rows="4" cols="150" class="inputText" id="taidLocDesc"></textarea></div>
+        
+        <div class="heightBtn"> <img src="images/next.png" alt=""  onclick="gotoAccidentReportToDescPage()" id="btnidAccidentReport"/></div>
+     </div>
+    
+      </div>
+
+<div data-role="page" id="accidentDescriptionPage">
+    <div data-role="header" data-position="fixed">
+         <!-- <div>
+        <div class="leftheading"><img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+        <div class="centerheading">Report an Accident</div>
+        <div class="rightheading"><img src="images/3Cancel.png" alt="" onclick="goindexPage()"/></div>
+        </div>-->
+          <table class="HeaderTable">
+            <tr class="HeaderTr">
+                <td>
+                    <div class="backbtn">
+                        <img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+                </td>
+                <td class="TopHeading">
+                  Report an Accident
+                </td>
+                 <td>
+                    <div style="width: 100%">
+                        <img src="images/3Cancel.png" alt="" onclick="goindexPage()"/></div>
+                </td>
+            </tr>
+        </table>
+       
+    </div>
+    <div data-role="content">
+        <div class="fieldnameAccident">
+           Accident Description</div>
+        <div class="inputFields">
+            <textarea rows="4" cols="150" class="inputText" id="idAccDesc"></textarea></div>
+        <div class="fieldnameAccident">
+            Road Conditions</div>
+        <div class="inputFields">
+          <!--<select class="selectOptionsRoad" id="idSelectRoadCondition1">
+                        <option value="Good">Good</option>
+                        <option value="Bad">Bad</option>
+                        <option value="Wet">Wet</option>
+                       
+                    </select>-->
+                     <input type="text"  id="idSelectRoadCondition" class="inputText"/>
+                    
+          </div>
+           <div class="fieldnameAccident">
+           Notes</div>
+        <div class="inputFields">
+        
+                     <textarea rows="4" cols="150" class="inputText" id="idAccDescNotes"></textarea>
+                    
+          </div>
+        
+        <div class="heightBtn"> <img src="images/next.png" alt="" onclick="gotoPhotoPage()" /></div>
+     </div>
+    
+      
+</div>
+
+<div data-role="page" id="photoPage">
+    <div data-role="header" data-position="fixed">
+       <!--<div>
+        <div class="leftheading"><img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+        <div class="centerheading">Report an Accident</div>
+        <div class="rightheading"><img src="images/3Cancel.png" alt="" onclick="goindexPage()"/></div>
+        </div>-->
+          <table class="HeaderTable">
+            <tr class="HeaderTr">
+                <td>
+                    <div class="backbtn">
+                        <img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+                </td>
+                <td class="TopHeading">
+                  Report an Accident
+                </td>
+                 <td>
+                    <div style="width: 100%">
+                        <img src="images/3Cancel.png" alt="" onclick="goindexPage()"/></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div data-role="content">
+    <div class="PhotoLocationHeading">Photo of Location</div>
+        <div class="inputFields" id="idAddPhotoImg">
+            <img src="images/Addphoto.png" style="width: 100%" alt="" onclick="capturePhotoWithFile();"/>
+        </div>
+        <div id="idDelImgPhotoImg">
+            <!--<div class="deleteImg">
+                <img src="images/delete.png" alt="" style="width: 100%" /></div>
+            <div class="photodiv">
+                <img src="images/5mount-img.png" alt="" style="width: 100%" /></div>-->
+        </div>
+          <div style="margin-top:10px;display:none;" id="idAddanotherphotoImg"> <img src="images/6Addanotherphoto.png" alt="" style="width:100%" onclick="capturePhotoWithFile()"/></div>
+          <div style="display:block;" id="idVediocapturediv"> <img src="images/Capture.png" alt="" style="width:100%" onclick="capturePhotoWithFile()"/></div>
+      
+      
+       
+        <div class="heightBtn"> <img src="images/next.png" alt=""  onclick="gotoDamagePhotoPage()"/></div>
+     </div>
+    
+      
+</div>
+
+<div data-role="page" id="DamagePhotoPage">
+    <div data-role="header" data-position="fixed">
+       <!--<div>
+        <div class="leftheading"><img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+        <div class="centerheading">Report an Accident</div>
+        <div class="rightheading"><img src="images/3Cancel.png" alt="" onclick="goindexPage()"/></div>
+        </div>-->
+        <table class="HeaderTable">
+            <tr class="HeaderTr">
+                <td>
+                    <div class="backbtn">
+                        <img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+                </td>
+                <td class="TopHeading">
+                  Report an Accident
+                </td>
+                 <td>
+                    <div style="width: 100%">
+                        <img src="images/3Cancel.png" alt="" onclick="goindexPage()"/></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div data-role="content">
+    <div class="PhotoLocationHeading">Photo of Damage</div>
+        <div class="inputFields" id="idAddDamagePhotoImg">
+            <img src="images/Addphoto.png" style="width: 100%" alt="" onclick="capturePhotoWithFiledamagePhoto();"/>
+        </div>
+        <div id="idDelImgDamagePhotoImg">
+            <!--<div class="deleteImg">
+                <img src="images/delete.png" alt="" style="width: 100%" /></div>
+            <div class="photodiv">
+                <img src="images/5mount-img.png" alt="" style="width: 100%" /></div>-->
+        </div>
+          <div style="margin-top:10px;display:none;" id="idAddanotherDamagephotoImg"> <img src="images/6Addanotherphoto.png" alt="" style="width:100%" onclick="capturePhotoWithFiledamagePhoto()"/></div>
+      
+      
+       
+        <div class="heightBtn"> <img src="images/next.png" alt="" onclick="gotoFirstPartyPage()"/></div>
+     </div>
+    
+      
+</div>
+
+
+<div data-role="page" id="SecondPartyPage">
+    <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed">
+            <table class="HeaderTable">
+                <tr class="HeaderTr">
+                    <td>
+                        <div class="backbtn">
+                            <img src="images/2left-arrow.png" alt="" onclick="gobackPage()" /></div>
+                    </td>
+                    <td class="TopHeading">
+                        Report an Accident
+                    </td>
+                    <td>
+                        <div style="width: 100%">
+                            <img src="images/3Cancel.png" alt="" onclick="goindexPage()" /></div>
+                    </td>
+                </tr>
+            </table>
+            <table class="ContentTable" cellspacing="0" cellpadding="0">
+                <tr class="PartyRow">
+                    <td class="Party">
+                       3rd Party(2)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table class="ContentTable" cellspacing="0" cellpadding="0">
+            <tr class="PartyRow">
+                <td class="Party">
+                    1st Witness
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div data-role="content">
+
+         <div style="width:100%!important;display: inline-block;">
+   <div style="width:100%!important"><div class="Title">Title</div><div class="Name"> First Name </div><div class="SurName"> SurName </div></div>
+             <div class="dateDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftdivReport1">
+                         <select id="idselectsecondpartyTitle" class="selectOptions">
+                                 <option value="Mr">Mr</option>
+                                 <option value="Miss">Miss</option>
+                                 
+                             </select>
+                     </div>
+                     <div class="leftdivReport2">
+                         <!--<img src="images/14Date.png" alt="" />-->
+                     </div>
+                     <div> </div>
+
+                 </div>
+             </div>
+             <div class="timeDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftName">
+                         <input type="text" class="inputImg" id="txtidSecondPartyName"/></div>
+                     <div class="leftdivReport2">
+                        <!-- <img src="images/15Clock.png" alt="" />-->
+                        </div>
+                 </div>
+             </div>
+             <div class="timeDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftSurname">
+                         <input type="text" class="inputImg" id="txtidSecondPartySurName"/></div>
+                     <div class="leftdivReport2">
+                         <!--<img src="images/15Clock.png" alt="" />-->
+                         </div>
+                 </div>
+             </div>
+     </div>
+          
+            <div class="fieldname">ID Number</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyIDNumber"/></div>
+            <div class="fieldname">License No</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidSecondpartyDriverLicenseNum"/></div>
+             <div class="fieldnameAccident" style="width:100%!important;display: inline-block;"><div class="License">Scan License </div>
+            <div class="camera"><img src="images/13Camera.png" alt="" onclick="capturePhotoWithFileDriverLicenseNumSP();"/></div>
+            </div>
+          
+            <div id="idSecondpartyDriverLicenseNumPhoto">
+               <!-- <div style="margin-left: 110px">
+                    <img src="images/delete.png" alt="" /></div>
+                <div class="photodiv">
+                    <img src="images/5mount-img.png" alt="" style="width: 50%; height: 50%" /></div>-->
+            </div>
+            <div class="fieldnameAccident">Phone </div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyPhNumber"/></div>
+            <div class="fieldnameAccident">Email </div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyemail"/></div>
+            <div class="fieldnameAccident"> Notes</div>
+            <div class="inputFields"><textarea rows="4" cols="150" class="inputText" id="txtSecondpartyNotes"></textarea></div>
+              
+              <div style="background:#747474!important;padding:10px;margin-top:20px;">
+              <div style="color: #ffffff!important;font-family:Arial;font-size: 16px;font-weight: bold;text-shadow:none">3rd Party Vehicle</div>
+              </div>
+           
+
+
+            <div class="fieldnameAccident">Make</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyVehicleMake"/></div>
+            <div class="fieldnameAccident">Model</div>
+            <div class="inputFields">
+          <input type="text" class="inputText" id="txtSecondpartyVehicleModel"/>
+           
+            </div>
+            <div class="fieldnameAccident">Year</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyVehicleYear"/></div>
+             <div class="fieldnameAccident">Color</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyVehiclecolor"/></div>
+            <div class="fieldnameAccident">Registration Number</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyRegNum"/></div>
+          
+            <div class="fieldnameAccident">VIN No</div>
+            <div class="innerFields"><div class="leftdivReport1"><input type="text" class="inputImg" id="txtSecondpartyVINNum" /></div><div class="leftdivReport2"><img src="images/questionmark.png" alt="" /></div></div>
+             <div class="fieldnameAccident"> Notes</div>
+            <div class="inputFields"><textarea rows="4" cols="150" class="inputText" id="txtSecondpartyVehicleNotes"></textarea></div>
+            <div class="fieldnameAccident" style="width:100%!important;display: inline-block;"><div class="License">Scan License Disk</div>
+            <div class="camera"><img src="images/13Camera.png" alt="" onclick="capturePhotoWithFileLicenseDiskSP();"/></div>
+            </div>
+            <div id="idSecondpartyLicenseDiskPhoto">
+               <!-- <div style="margin-left: 110px">
+                    <img src="images/delete.png" alt="" /></div>
+                <div class="photodiv">
+                    <img src="images/5mount-img.png" alt="" style="width: 50%; height: 50%" /></div>-->
+            </div>
+             <div class="fieldnameAccident" style="width:100%!important;display: inline-block;"><div class="License">Photo of Damages</div>
+            <div class="camera"><img src="images/13Camera.png" alt="" onclick="capturePhotoWithFileDamagePhotoSP();"/></div>
+            </div>
+            <div id="idSecondpartyDamagePhoto">
+               <!-- <div style="margin-left: 110px">
+                    <img src="images/delete.png" alt="" /></div>
+                <div class="photodiv">
+                    <img src="images/5mount-img.png" alt="" style="width: 50%; height: 50%" /></div>-->
+            </div>
+               <div style="background:#747474!important;padding:10px;margin-top:20px;">
+              <div style="color: #ffffff!important;font-family:Arial;font-size: 16px;font-weight: bold;text-shadow:none">3rd Party Insurance</div>
+              </div>
+                  
+            <div class="fieldnameAccident">Insurer</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyInsurer"/></div>
+             <div class="fieldnameAccident">Policy No</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyInsurerPcnum"/></div>
+             <div class="fieldnameAccident">Phone</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyInsurerPhnum"/></div>
+             <div class="fieldnameAccident">Color</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyInsurerVcolor"/></div>
+             <div class="fieldnameAccident">Registration </div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyInsurerVReg"/></div>
+             <div class="fieldnameAccident">Vin No</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtSecondpartyInsurerVinnum"/></div>
+        
+
+            
+            <div class="heightBtn">
+                <img src="images/next.png" alt="" onclick="gotoWitnessPageFromSP()" /></div>
+                 <input type="hidden" id="Hidden2" value="" />
+        </div>
+  </div>
+<div data-role="page" id="WitnessPage">
+    <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed">
+            <table class="HeaderTable">
+                <tr class="HeaderTr">
+                    <td>
+                        <div class="backbtn">
+                            <img src="images/2left-arrow.png" alt="" onclick="gobackPage()" /></div>
+                    </td>
+                    <td class="TopHeading">
+                        Report an Accident
+                    </td>
+                    <td>
+                        <div style="width: 100%">
+                            <img src="images/3Cancel.png" alt="" onclick="goindexPage()" /></div>
+                    </td>
+                </tr>
+            </table>
+            <table class="ContentTable" cellspacing="0" cellpadding="0">
+                <tr class="PartyRow">
+                    <td class="Party">
+                        1st Witness
+                    </td>
+                </tr>
+            </table>
+        </div>
+       
+    </div>
+    <div data-role="content">
+      <div style="width:100%!important;display: inline-block;">
+   <div style="width:100%!important"><div class="Title">Title</div><div class="Name"> Name </div><div class="SurName"> SurName </div></div>
+             <div class="dateDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftdivReport1">
+                         <div class="inputFields">
+                             <select class="selectOptions" id="idselectwitnesstitle">
+                                 <option value="MR">Mr</option>
+                                 <option value="MISS">Miss</option>
+                             </select>
+                         </div>
+                     </div>
+                     <div class="leftdivReport2">
+                        <!-- <img src="images/14Date.png" alt="" />-->
+                        </div>
+                 </div>
+             </div>
+             <div class="timeDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftName">
+                         <input type="text" class="inputImg" id="txtidwitnessName"/></div>
+                     <div class="leftdivReport2">
+                         <!--<img src="images/15Clock.png" alt="" />-->
+                         </div>
+                 </div>
+             </div>
+             <div class="timeDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftSurname">
+                         <input type="text" class="inputImg" id="txtidwitnessSurName" /></div>
+                     <div class="leftdivReport2">
+                         <!--<img src="images/15Clock.png" alt="" />-->
+                         </div>
+                 </div>
+             </div>
+     </div>
+      
+             <div class="fieldname">Phone Number</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidwitnessPhnum"/></div>
+             <div class="fieldnameAccident">Email Address</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidwitnessEmail"/></div>
+             <div class="fieldnameAccident">Notes</div>
+             <div class="inputFields"><textarea rows="4" cols="150" class="inputText" id="taidwitnessnotes"></textarea></div>
+             <!--<div class="fieldnameAccident">Witness Statment</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidwitnessSt1"/></div>-->
+              <div class="fieldname">Witness Statment</div>
+            <div class="inputFields" style="width:100%!important;display: inline-block;">
+                <div style="float: left;width:75%!important">
+                    <input type="text" class="inputText" id="txtidwitnessSt"/></div>
+                <div style="float: left;width:25%!important">
+                    <img src="images/Mike.png" alt="" style="float: right;margin-top: 5px;"/></div>
+            </div>
+            <div class="heightBtnAnother"><img src="images/Another-witness.png" alt="" style="width:100%" onclick="gotoSecondWitnessPage()"/></div>
+               <div class="heightBtn">
+                <img src="images/next.png" alt="" onclick="gotopolicecasePageFromFirstWitness()" /></div>
+    </div>
+  </div>
+<div data-role="page" id="SecondWitnessPage">
+    <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed">
+            <table class="HeaderTable">
+                <tr class="HeaderTr">
+                    <td>
+                        <div class="backbtn">
+                            <img src="images/2left-arrow.png" alt="" onclick="gobackPage()" /></div>
+                    </td>
+                    <td class="TopHeading">
+                        Report an Accident
+                    </td>
+                    <td>
+                        <div style="width: 100%">
+                            <img src="images/3Cancel.png" alt="" onclick="goindexPage()" /></div>
+                    </td>
+                </tr>
+            </table>
+            <table class="ContentTable" cellspacing="0" cellpadding="0">
+                <tr class="PartyRow">
+                    <td class="Party">
+                        2nd Witness
+                    </td>
+                </tr>
+            </table>
+        </div>
+     
+    </div>
+    <div data-role="content">
+      <div style="width:100%!important;display: inline-block;">
+   <div style="width:100%!important"><div class="Title">Title</div><div class="Name"> Name </div><div class="SurName"> SurName </div></div>
+             <div class="dateDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftdivReport1">
+                         <div class="inputFields">
+                             <select class="selectOptions" id="idselectSwitnesstitle">
+                                 <option value="MR">Mr</option>
+                                 <option value="MISS">Miss</option>
+                             </select>
+                         </div>
+                     </div>
+                     <div class="leftdivReport2">
+                        <!-- <img src="images/14Date.png" alt="" />-->
+                        </div>
+                 </div>
+             </div>
+             <div class="timeDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftName">
+                         <input type="text" class="inputImg" id="txtidSwitnessName"/></div>
+                     <div class="leftdivReport2">
+                         <!--<img src="images/15Clock.png" alt="" />-->
+                         </div>
+                 </div>
+             </div>
+             <div class="timeDiv" style="width: 33.3%!important">
+                 <div class="innerFields">
+                     <div class="leftSurname">
+                         <input type="text" class="inputImg" id="txtidSwitnessSurName" /></div>
+                     <div class="leftdivReport2">
+                         <!--<img src="images/15Clock.png" alt="" />-->
+                         </div>
+                 </div>
+             </div>
+     </div>
+      
+             <div class="fieldname">Phone Number</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidSwitnessPhnum"/></div>
+             <div class="fieldnameAccident">Email Address</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidSwitnessEmail"/></div>
+             <div class="fieldnameAccident">Notes</div>
+             <div class="inputFields"><textarea rows="4" cols="150" class="inputText" id="taidSwitnessnotes"></textarea></div>
+             <!--<div class="fieldnameAccident">Witness Statment</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidwitnessSt1"/></div>-->
+              <div class="fieldname">Witness Statment</div>
+            <div class="inputFields" style="width:100%!important;display: inline-block;">
+                <div style="float: left;width:75%!important">
+                    <input type="text" class="inputText" id="txtidSwitnessSt"/></div>
+                <div style="float: left;width:25%!important">
+                    <img src="images/Mike.png" alt="" style="float: right;margin-top: 5px;"/></div>
+            </div>
+           
+               <div class="heightBtn">
+                <img src="images/next.png" alt="" onclick="gotopolicecasePageFromSecondWitness()" /></div>
+    </div>
+  </div>
+
+<div data-role="page" id="policecasePage">
+    <div data-role="header" data-position="fixed">
+        <table class="HeaderTable">
+            <tr class="HeaderTr">
+                <td>
+                    <div class="backbtn">
+                        <img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+                </td>
+                <td class="TopHeading">
+                    Report an Accident
+                </td>
+            </tr>
+        </table>
+        <table class="ContentTable" cellspacing="0" cellpadding="0">
+            <tr class="PartyRow">
+                <td class="Party">
+                 Police Case
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div data-role="content">
+      
+      
+      <div class="fieldname">Officer Name</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidpolicename"/></div>
+
+             <div class="fieldname">Officer Number</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidpolicenumber"/></div>
+             <div class="fieldnameAccident">Case Number</div>
+            <div class="inputFields"><input type="text" class="inputText" id="txtidcasenumber"/></div>
+      
+              <div class="heightBtn">
+                <img src="images/SAVE.png" alt="" onclick="btnSaveAllDetails()" /></div>
+    
+      
+        <div>
+        </div>
+    </div>
+  
+</div>
+<div data-role="page" id="accidentReportPartyPage">
+    <div data-role="header" data-position="fixed">
+        <table class="HeaderTable">
+            <tr class="HeaderTr">
+                <td>
+                    <div class="backbtn">
+                        <img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+                </td>
+                <td class="TopHeading">
+                    Report an Accident
+                </td>
+            </tr>
+        </table>
+        <table class="ContentTable" cellspacing="0" cellpadding="0">
+            <tr class="PartyRow">
+                <td class="Party">
+                    1st Other Party
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div data-role="content">
+      
+        <table border="1px solid #464646!important">
+            <tr class="RowPartyName">
+                <td class="tdleftspaceparty">
+                    <select>
+                        <option value="Title">Title</option>
+                        <option value="Title">Title</option>
+                        <option value="Title">Title</option>
+                        <option value="Title">Title</option>
+                    </select>
+                </td>
+                <td class="tdcenterspaceparty">
+                    <input type="text" placeholder="Name" />
+                </td>
+                <td class="tdrightspaceparty">
+                    <input type="text" placeholder="SurName" />
+                </td>
+            </tr>
+        </table>
+             
+        <ul data-role="listview" id="lstPartys">
+            <li class="HistroyDetails">
+                <input type="text" placeholder="ID Number" /></li>
+            <li class="HistroyDetails">
+          
+                <input type="text" placeholder="Driver's License Number" width="75%!important" /><img
+                    src="images/13Camera.png" alt="" /></li>
+            <li class="HistroyDetails">
+                <input type="text" placeholder="Phone Number" /></li>
+            <li class="HistroyDetails">
+                <img src="images/12SwcondOtherPrty.png" alt="" /></li>
+            <li class="HistroyDetails">
+                <img src="images/7next.png" alt="" /></li>
+        </ul>
+      
+        <div>
+        </div>
+    </div>
+  
+</div>
+<!--
+<div data-role="page" id="HistroyPage">
+    <div data-role="header" data-position="fixed">
+      <table class="HeaderTable"> <tr class="HeaderTr"> <td> <div class="backbtn"><img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div> </td><td class="TopHeading">Histroy</td> </tr> </table>
+    </div>
+    <div data-role="content">
+     <div id="lstHistroy">
+      <div class="HistroyOuterColor1" onclick="gotohistroyDetailsPage()">
+            <div class="HistroytimeDiv">
+                <div class="Histroyfields">
+                    <div class="DateTimestyle1">01</div>  <div class="DateTimestyle2">01/01/15</div> <div class="DateTimestyle3">12.50PM</div>
+                </div>
+            </div>
+        </div>
+          <div class="HistroyOuterColor2">
+            <div class="HistroytimeDiv">
+                <div class="Histroyfields">
+                    <div class="DateTimestyle1">01</div>  <div class="DateTimestyle2">01/01/15</div> <div class="DateTimestyle3">12.50PM</div>
+                </div>
+            </div>
+        </div>
+         <div class="HistroyOuterColor1">
+            <div class="HistroytimeDiv">
+                <div class="Histroyfields">
+                    <div class="DateTimestyle1">01</div>  <div class="DateTimestyle2">01/01/15</div> <div class="DateTimestyle3">12.50PM</div>
+                </div>
+            </div>
+        </div>
+      
+       
+      </div>
+
+           
+     </div>
+    
+    
+</div>-->
+
+<div data-role="page" id="WhatTodoPage">
+    <div data-role="header" data-position="fixed">
+      <table class="HeaderTable"> <tr class="HeaderTr"> <td> <div class="backbtn"><img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div> </td><td class="TopHeading">What to do</td> </tr> </table>
+    </div>
+    <div data-role="content">
+     <table class="ContentTable" cellspacing="0" cellpadding="0">
+         <tr>
+            
+             <td class="tdcenterspace">
+               <p class="paraAboutAA">Most of the statistics are based on accidents reported to the police (STATS19 system). These provide detailed statistics about the circumstances of personal injury road accidents, including the types of vehicles involved and the consequent casualties.</p>
+             </td>
+             
+         </tr>
+     </table>
+    
+</div>
+  
+</div>
+<div data-role="page" id="aboutAAPage">
+    <div data-role="header" data-position="fixed">
+      <table class="HeaderTable"> <tr class="HeaderTr"> <td> <div class="backbtn"><img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div> </td><td class="TopHeading">About AA</td> </tr> </table>
+    </div>
+    <div data-role="content">
+     <table class="ContentTable" cellspacing="0" cellpadding="0">
+         <tr>
+            
+             <td class="tdcenterspace">
+               <p class="paraAboutAA">Most of the statistics are based on accidents reported to the police (STATS19 system). These provide detailed statistics about the circumstances of personal injury road accidents, including the types of vehicles involved and the consequent casualties.</p>
+             </td>
+             
+         </tr>
+     </table>
+    
+</div>
+  
+</div>
+
+<div data-role="page" id="histroyDetailsPage" class="BodyBackground">
+    <div data-role="header" data-position="fixed">
+      <table class="HeaderTable"> <tr class="HeaderTr"> <td> <div class="backbtn"><img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div> </td><td class="TopHeading">Histroy Details</td> </tr> </table>
+    </div>
+    <div data-role="content">
+    <!--<ul data-role="listview" id="lstAllinfo">
+   <li class="HistroyDetails" id="hisdateTime">Date Time:</li>
+    <li class="HistroyDetails" id="hisGPS">GPS Location of Incident:</li>
+    <li class="HistroyDetails" id="hisDesLoc">Description of Location:</li>
+    <li class="HistroyDetails" id="Li1">Weather Conditions Temp 0</li>
+    <li class="HistroyDetails" id="Li2"><img src="images/5mount-img.png" alt=""/></li>
+    <li class="HistroyDetails" id="Li3">1st Other Party</li>
+    <li class="HistroyDetails" id="hisFName">Name:</li>
+    <li class="HistroyDetails" id="hisFIDNum">ID Number:</li>
+    <li class="HistroyDetails" id="hisFDLNum">Driver License Number:</li>
+     <li class="HistroyDetails" >2nd Other Party</li>
+    <li class="HistroyDetails" id="hisSName">Name:</li>
+    <li class="HistroyDetails" id="hisSIDNum">ID Number:</li>
+    <li class="HistroyDetails" id="hisSDLNum">Driver License Number:</li>
+    </ul>-->
+    <ul data-role="listview" id="lstAllAccidentData">
+    <!--<li class="HistroyDetails">Date Time:</li>
+    <li class="HistroyDetails">GPS Location of Incident:</li>
+    <li class="HistroyDetails">Description of Location:</li>-->
+    </ul>
+     <ul data-role="listview" id="lstAllPartysData">
+     <!--<li class="HistroyDetails">1st Other Party</li>
+    <li class="HistroyDetails">Name:</li>
+    <li class="HistroyDetails">ID Number:</li>
+    <li class="HistroyDetails">Driver License Number:</li>
+    <li class="HistroyDetails">2nd Other Party</li>
+    <li class="HistroyDetails">Name:</li>
+    <li class="HistroyDetails">ID Number:</li>
+    <li class="HistroyDetails">Driver License Number:</li>-->
+    </ul>
+     <ul data-role="listview" id="lstAllWitnessData">
+     <!--<li class="HistroyDetails">1st Witness</li>
+    <li class="HistroyDetails">Name:</li>
+    <li class="HistroyDetails">Phone Number:</li>
+    <li class="HistroyDetails">Email Address:</li>
+    <li class="HistroyDetails">Witness Statement:</li>-->
+   </ul>
+
+</div>
+  
+</div>
+<div data-role="page" id="AAAccidentAssistPage">
+    <div data-role="header" data-position="fixed">
+        <table class="HeaderTable">
+            <tr class="HeaderTr">
+                <td>
+                    <div class="backbtn">
+                        <img src="images/2left-arrow.png" alt="" onclick="gobackPage()"/></div>
+                </td>
+                <td class="TopHeading">
+                   AA Accident Assist
+                </td>
+                 <td>
+                    <div style="width: 100%">
+                        <img src="images/3Cancel.png" alt="" onclick="goindexPage()"/></div>
+                </td>
+            </tr>
+        </table>
+       
+    </div>
+    <div data-role="content" style="padding:0px!important">
+    <div class="listData" onclick="gotoWhatTodoPage()">
+    
+    <p class="Assist">WHAT TO DO</p>
+    </div>
+     <div class="listData" onclick="gotoaccidentReportPage()">
+      <p class="Assist"> REPORT AN ACCIDENT</p>
+   
+    </div>
+     <div class="listData" onclick="gotoAboutAAPage()">
+      <p class="Assist">CALL POLICE</p>
+    
+    </div>
+     <div class="listData" onclick="btnshowHistroyPage()">
+      <p class="Assist"> HISTROY</p>
+   
+    </div>
+        
+       
+        
+     </div>
+    
+      </div>
+
+</body>
+</html>
+

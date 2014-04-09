@@ -1,0 +1,102 @@
+#popup_container {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	min-width: 250px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	
+	background-color: black!important;
+	border: solid 1px #FFF;
+	color: #FFF;
+	
+	
+	text-shadow:none !important;
+	
+	
+}
+
+#popup_title {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 1.75em;
+	color: #FFF;
+	/*background: #CCC url(images/title.gif) top repeat-x;
+	border: solid 1px #FFF;
+	border-bottom: solid 1px #999;*/
+	cursor: default;
+	padding: 0em;
+	margin: 0em;
+	padding-left:10px!important;
+}
+
+#popup_content {
+	background: 16px 16px no-repeat url(images/info.gif);
+	/*padding: 1em 1.75em;*/
+	margin: 0em;
+}
+
+#popup_content.alert {
+	background-image: url(images/info.gif);
+}
+
+#popup_content.confirm {
+	background-image: url(images/important.gif);
+    height:60px;
+  
+}
+
+#popup_content.prompt {
+	background-image: url(images/help.gif);
+}
+
+#popup_message {
+	
+   font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+	
+	color: #FFF;
+	
+	cursor: default;
+	padding: 0em;
+	margin: 0em;
+	padding:10px!important; 
+}
+
+#popup_panel {
+	text-align: center;
+	/*margin: 1em 0em 0em 1em;*/
+background-color:#9a9a9a;
+height:40px!important;
+	
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
+.okalert {
+    width:100%;
+    height:30px;
+    background-color: #6A7590;
+   /* border-color:gray;
+    border-width:5px;*/
+    border:none!important;
+}
+
+/*Feb 21st ADDED PROFILE page confirm box*/
+#popup_ok
+{
+    width:60%;
+    height:30px;
+    background-color: #DADADA;
+    margin-top:6px!important;
+
+}
+#popup_cancel
+{
+    width:75px;
+    height:40px;
+    border-color:gray;
+    border-width:5px;
+    margin-left:10px;
+}

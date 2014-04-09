@@ -1,0 +1,743 @@
+body
+{
+    margin: 0!important;
+    padding: 0!important;
+    
+   
+}
+.maintable
+{
+    width: 100%;
+    vertical-align: top;
+    overflow: hidden;
+ 
+    
+}
+
+.leftdiv
+{
+    text-align:left;
+}
+.headingdiv
+{
+    text-align:left;
+}
+
+.RoundImgSize
+{
+   width:50%;
+   
+}
+
+.liHeadingcenter
+{
+text-align:center!important;
+color: #ffffff!important;
+font-family:Arial!important;
+font-size: 16px!important;
+font-weight: bold!important;
+text-shadow: none!important;
+}
+.BtnSpace
+{
+    margin:2%;
+}
+#toremovebullets ul { list-style-type: none; }
+
+.liclass
+{
+   padding:20px;
+   border: 1px solid grey;
+}
+.anchorclass
+{
+font-family: Helvetica, Arial, sans-serif ;
+font-size: 16px;
+text-decoration: none !important;
+font-weight: bold;
+color: #222 ;
+}
+.photoimgsize
+{
+    margin-left:10px;
+    display:none;
+    width:100px;
+    height:100px;
+}
+.SavemultiplePhotos
+{
+    margin-left:50px;
+    display:block;
+    width:100px;
+    height:100px;
+    
+}
+/* start */
+.HeaderTable
+{
+   width:100%;
+   height:100%;
+
+}
+.TopHeading
+{
+color: #ffffff!important;
+font-family:Arial!important;
+font-size: 16px!important;
+font-weight: bold!important;
+/*padding-left:20%!important;*/
+width:60%!important;
+text-align:center!important;
+
+}
+.ContentTable
+{
+    width:100%;
+    height:100%;
+   /* background-color:#252525;*/
+    vertical-align:top;
+    overflow:hidden;
+    min-height:100%;
+}
+
+.tableRowHistroy
+{
+      width:100%;
+        text-align:center;
+      border-color:white;
+      border:1px solid black;
+      height:10%;
+     
+}
+.HistroyTime
+{
+color: #ffffff;
+font-family:Arial;
+font-size: 16px;
+}
+/* histroy details */
+.HistroyDetails
+{
+color: #ffffff!important;
+font-family:Arial!important;
+font-size: 14px!important;
+border:none!important;
+background-color:#252525!important;
+text-shadow: none!important;
+padding: .7em 15px!important;
+}
+.Fieldnames
+{
+    color: #929292!important;
+font-family:Arial!important;
+font-size: 14px!important;
+background-color:#252525!important;
+text-shadow: none!important;
+
+border:none!important;
+}
+
+#lstAllinfo ul { list-style-type: none; }
+ .ui-body-c,
+.ui-overlay-c 
+{
+    background:#252525!important;		
+}
+.whetherimg
+{
+    width:100%;
+    height:100%;
+}
+/***Accidentphoto **/
+.tdleftspace
+{
+    width:8%;
+}
+.tdrightspace
+{
+    width:8%;
+}
+.tdcenterspace
+{
+     width:84%;
+}
+.gapPhoto
+{
+    height:40px;
+}
+.gapNext
+{
+    height:200px;
+}
+.HeaderTr
+{
+   height:40px;  
+   width:100%!important;
+}
+.HeaderLeft
+{
+     width:20%!important;
+     float:left!important;
+}
+.HeaderRight
+{
+     width:20%!important;
+     float:right!important;
+}
+/***AA **/
+.paraAboutAA
+{
+color: #ffffff!important;
+font-family:Arial!important;
+font-size: 14px!important;
+text-align:justify!important;
+line-height:150%!important;
+text-shadow:none!important;
+/*padding:20px!important;*/
+
+
+}
+.paraAboutAABold
+{
+color: #ffffff!important;
+font-family:Arial!important;
+font-size: 14px!important;
+text-align:justify!important;
+line-height:150%!important;
+text-shadow:none!important;
+font-weight:bold;
+/*padding:20px!important;*/
+
+
+}
+/*** 1st Party**/
+.Party
+{
+    color: #ffffff;
+font-family:Arial;
+font-size: 16px;
+font-weight: bold;
+padding-left:1%;
+}
+.PartyRow
+{
+    background:#747474;
+    height:40px;
+    padding:0px;
+}
+.PartyTable
+{
+    border:1;
+    width:100%
+}
+.tdleftspaceparty
+{
+    width:20%;
+}
+.tdcenterspaceparty
+{
+     width:40%;
+}
+.tdrightspaceparty
+{
+     width:40%;
+}
+.RowPartyName
+{
+    background:#242424!important;
+    width:100%;
+}
+.gapparty
+{
+   height:50px; 
+}
+.PartyName
+{
+     width:100%;
+}
+.maindiv
+{
+    width:100%;
+}
+.innerMaindiv
+{
+}
+.dateDiv
+{
+float:left;
+color: #929292!important;
+font-family:Arial!important;
+font-size: 14px!important;
+text-shadow: none!important;
+
+}
+.timeDiv
+{
+float:left;
+color: #929292!important;
+font-family:Arial!important;
+font-size: 14px!important;
+
+text-shadow: none!important;
+}
+.leftdivReport1
+{
+    float:left;
+    width: 60%;
+}
+.leftName
+{
+    float:left;
+    width: 100%;
+}
+.leftSurname
+{
+    float:left;
+    width: 100%;
+}
+.leftdivReport2
+{
+   
+  float: right;
+margin-top: 8px;
+margin-right: 13px;
+   
+}
+
+.fieldname
+{
+  
+color: #929292!important;
+font-family:Arial!important;
+font-size: 14px!important;
+text-shadow: none!important;
+margin-top:3%!important;
+
+
+
+}
+.fieldnameAccident
+{
+color: #929292!important;
+font-family:Arial!important;
+font-size: 14px!important;
+text-shadow: none!important;
+margin-top:3%!important;
+margin-bottom:1%!important;
+width:100%;
+}
+.inputFields
+{
+    
+    width:100%!important;
+   
+    
+}
+.heightBtnAnother
+{
+    margin-top:20px!important;
+    text-align:center!important;
+}
+.heightBtn
+{
+    margin-top:100px!important;
+    text-align:center!important;
+}
+.heightBtn
+{
+    margin-top:100px!important;
+    text-align:center!important;
+}
+.inputImg
+{
+  border:none!important;
+  width:100%!important;
+  color: #929292!important;
+font-family:Arial!important;
+font-size: 14px!important;
+background-color:#252525!important;
+text-shadow:none!important;
+  
+ 
+}
+.inputText
+{
+     width:100%!important;
+  color: #929292!important;
+font-family:Arial!important;
+font-size: 14px!important;
+background-color:#252525!important;
+text-shadow:none!important;
+height:40px!important;
+}
+.DateText
+{
+    float:left!important;
+}
+
+.innerFields
+{
+    border-color:#929292!important;
+    border-width:1px;
+    border-style:solid;
+    height:40px;
+    background-color: #252525!important;
+}
+innerFieldsVIN
+{
+     border-color:#929292!important;
+    border-width:1px;
+    border-style:solid;
+    height:45px;
+    
+}
+.deleteImg
+{
+    float:right;
+    padding:5px!important;
+}
+.photodiv
+{
+}
+.camImg
+{
+    float:left;
+    padding:5px!important;
+}
+
+.AddphotoText
+{
+    float:left;
+}
+.camParty
+{
+    padding:5px!important;
+}
+.innerFieldsNoborder
+{
+    border:none!important;
+}
+.slNo
+{
+    float:left!important;
+}
+.dateHistroy
+{
+     float:left!important;
+}
+.timeHistroy
+{
+     float:left!important;
+}
+.fieldnamedateTime
+{
+padding:10px!important;
+color: #929292!important;
+font-family:Arial!important;
+font-size: 14px!important;
+}
+.fieldnamedateTime1
+{
+padding:10px!important;
+font-family:Arial!important;
+font-size: 14px!important;
+}
+.fieldnamedateTimeBorder
+{
+    border-color:#929292!important;
+    padding:10px!important;
+font-family:Arial!important;
+font-size: 14px!important;
+}
+.table,th,td
+{
+border:1px solid 929292;
+}
+.DateTime
+{
+width:50%;
+float:left; 
+color: #929292!important;
+font-family: Arial!important;
+font-size: 14px!important;
+text-shadow: none!important;
+margin-top: 5%!important;
+margin-bottom:3%!important;
+}
+.Title
+{
+    width:33.3%;
+    float:left; 
+color: #929292!important;
+font-family: Arial!important;
+font-size: 14px!important;
+text-shadow: none!important;
+margin-top: 5%!important;
+margin-bottom:3%!important;
+}
+.Name
+{
+     width:33.3%;
+    float:left; 
+color: #929292!important;
+font-family: Arial!important;
+font-size: 14px!important;
+text-shadow: none!important;
+margin-top: 5%!important;
+margin-bottom:3%!important;
+}
+.SurName
+{
+     width:33.3%;
+    float:left; 
+color: #929292!important;
+font-family: Arial!important;
+font-size: 14px!important;
+text-shadow: none!important;
+margin-top: 5%!important;
+margin-bottom:3%!important;
+}
+.License
+{
+     width:85%; 
+    float:left; 
+    margin-top: 4%!important;
+    
+   
+}
+.camera
+{
+width:15%;
+float:right; 
+margin-top: 3%!important;
+margin-bottom:3%!important;
+}
+.HistroyOuter
+{
+    width: 100%!important; display: inline-block; 
+}
+.HistroytimeDiv
+{
+float:left;
+color: #929292!important;
+font-family:Arial!important;
+font-size: 14px!important;
+text-shadow: none!important;
+width: 100%!important
+}
+.DateTimestyle1
+{
+font-family:Arial!important;
+font-size: 14px!important;
+color:White;
+
+float:left;
+width:10%;
+margin-top: 10px;
+padding-left:10px!important;
+}
+.DateTimestyle2
+{
+font-family:Arial!important;
+font-size: 14px!important;
+color:White;
+
+float:left;
+width:30%;
+margin-top: 10px;
+margin-left:10px;
+}
+.DateTimestyle3
+{
+font-family:Arial!important;
+font-size: 14px!important;
+color:White;
+
+float:left;
+width:40%;
+margin-top: 10px;
+margin-left:20px;
+
+}
+
+.Histroyfields
+{
+    border-color:#929292!important;
+    border-width:1px;
+    border-style:solid;
+    height:40px;
+    width:100%;
+}
+.HistroyOuterColor1
+{
+     width: 100%!important; display: inline-block;
+     background-color:#5e5e5e;
+}
+.HistroyOuterColor2
+{
+     width: 100%!important; display: inline-block;
+}
+.selectOptions
+{
+    width:100%!important;
+    background:#252525!important;
+    height:40px;
+    
+  color: #929292!important;
+font-family:Arial!important;
+font-size: 14px!important;
+min-width:169%!important;
+    
+}
+.selectOptionsRoad
+{
+    width:100%!important;
+    background:#5e5e5e!important;
+    height:40px;
+    color: #929292!important;
+    font-family:Arial!important;
+    font-size: 14px!important;
+    text-shadow:none!important;
+
+}
+.backbtn
+{
+    width:100%!important;
+   /* margin-left:15px;*/
+}
+.listData
+{
+
+/*color: white!important;*/
+font-family: Arial!important;
+font-size: 14px!important;
+background-color: #5e5e5e!important;
+border-bottom:black!important;
+border:1px solid;
+padding:20px!important;
+font-weight:bold!important;
+text-shadow:none!important;
+}
+.Assist
+{
+   color: white!important; 
+   margin:0!important;
+}
+.headingdiv
+{
+    padding:10px!important;
+}
+
+.leftheading
+{
+    float:left;
+    width:15%!important;
+  
+   
+}
+.centerheading
+{
+    float:left;
+    width:70%!important;
+    
+     text-align:center;
+   
+}
+.rightheading
+{
+    float:right;
+    width:15%!important;
+   
+   
+}
+/*select
+{
+   
+margin-left: 0!important;
+background: none!important;
+
+
+
+}*/
+
+.3rdPartydiv
+{
+    background:#747474!important;padding:10px;margin-top:5px;
+   
+}
+.3rdParty
+{
+color: #ffffff!important;
+font-family:Arial;
+font-size: 16px;
+font-weight: bold;
+padding-left:1%;
+padding-top:3%;
+}
+
+.PhotoLocationHeading
+{
+color: #929292!important;
+font-family: Arial!important;
+font-size: 14px!important;
+text-shadow: none!important;
+margin-top:10px!important;
+margin-bottom:10px!important;
+
+}
+.titleparty
+{
+min-width: 166%!important;
+min-height: 38px!important;
+background-color: #5e5e5e!important;
+margin:none!important;
+padding:none!important;
+box-shadow: none!important;
+}
+.modelclass
+{
+  width: 100%!important;
+height: 40px!important;
+background-color: #5e5e5e!important;
+}
+.paraAboutAAQuestionmark
+{
+color: #ffffff!important;
+font-family:Arial!important;
+font-size: 14px!important;
+text-align:justify!important;
+line-height:150%!important;
+text-shadow:none!important;
+width:80%!important;
+}
+.AudioName
+{
+color: #929292!important;
+font-family: Arial!important;
+font-size: 14px!important;
+text-shadow: none!important;
+}
+.contentDiv
+{
+    background-color: black!important;
+}
+.BodyBackground
+{
+    background-color:black!important;
+   /* max-height:100%;*/
+}
+
+/*video { 
+   width:305px; 
+   height:160px;  
+   background:transparent url('poster.jpg') no-repeat 0 0; 
+   -webkit-background-size:cover; 
+   -moz-background-size:cover; 
+   -o-background-size:cover; 
+   background-size:cover; 
+}*/
+.leftdivReport1VIN
+{
+    float:left;
+    width: 80%;
+}
